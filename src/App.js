@@ -139,13 +139,17 @@ App.defaultProps = {
 
 // re-usable/composable component
 class NumInput extends Component {
+  constructor(props) {
+    super(props)
+    this.inp = React.createRef()
+  }
   render() {
     let label = this.props.label !== '' ? 
       <label>{this.props.label} = { this.props.val }</label> : ''
     return (
       <div>
         <input
-          ref="inp"
+          ref={ this.inp }
           type={this.props.type}
           min={this.props.min}
           max={this.props.max}
