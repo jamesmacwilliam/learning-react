@@ -289,11 +289,16 @@ const LabelHoc = HOC(Label)
 const Title = (props) => <h1>Title: { props.text }</h1>
 
 class Input extends Component {
+  constructor(props) {
+    super(props)
+    this.input = null
+    this.setInputRef = element => this.input = element
+  }
   render() {
     return (
       <div>
         <input
-          ref="input"
+          ref={ this.setInputRef }
           type="text"
           onChange={this.props.update}
         />
